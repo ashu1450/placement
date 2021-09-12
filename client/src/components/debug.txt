@@ -1,0 +1,40 @@
+ <div className="SideBarItems">
+            Hello from sidebaritems.
+            <div id="left-sidebar--sticky-container js-sticky-leftnav">
+                <nav role ="navigation">
+                <ol class="nav-links">
+        <li class="">
+        <img src="C:\Users\Kav Ya\Desktop\SonaSpace\client\public\placement history.jpg" alt=" "/>
+            <a href="/" class="pl8 js-gps-track nav-links--link" data-gps-track="top_nav.click({is_current:false, location:2, destination:8})" aria-controls="" data-controller="" data-s-popover-placement="right" data-s-popover-auto-show="true" data-s-popover-hide-on-outside-click="never">
+                    <div class="d-flex ai-center">
+                       
+                        <div class="flex--item truncate">
+                            Home
+                        </div>
+                    </div>
+            </a>
+        </li>
+        <li class="">
+            <a href="/" class="pl8 js-gps-track nav-links--link" data-gps-track="top_nav.click({is_current:false, location:2, destination:8})" aria-controls="" data-controller="" data-s-popover-placement="right" data-s-popover-auto-show="true" data-s-popover-hide-on-outside-click="never">
+                    <div class="d-flex ai-center">
+                        <div class="flex--item truncate">
+                            Home
+                        </div>
+                    </div>
+            </a>
+        </li>
+        <li class="">
+            <a href="/" class="pl8 js-gps-track nav-links--link" data-gps-track="top_nav.click({is_current:false, location:2, destination:8})" aria-controls="" data-controller="" data-s-popover-placement="right" data-s-popover-auto-show="true" data-s-popover-hide-on-outside-click="never">
+                    <div class="d-flex ai-center">
+                        <div class="flex--item truncate">
+                            Home
+                        </div>
+                    </div>
+            </a>
+        </li>
+        </ol>
+        </nav>
+        </div>
+        </div>
+
+        class="nav-item"><a href="/components/alerts/" data-rr-ui-event-key="/components/alerts/" class="SideNav-TocSubLink-module--cls2--kiclr SideNav-TocSubLink-module--cls1--1KyVl SideNav-TocLink-module--cls2--3Ynil SideNav-TocLink-module--cls1--2TXMz nav-link">Alerts</a></div>

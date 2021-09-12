@@ -1,9 +1,25 @@
 import React from 'react'
+import Feed from '../../center/Feed';
+ import RightsideBar from '../../RightSideBar/RightSideBar';
+ import SideBar from '../../SideBar/SideBar';
+
+
+import "./Home.css";
+
+
+
+
 
 export default function Home() {
     return (
-        <div>
-            <h2>Hello i am home</h2>
+        <div className="homeContent">
+         
+         <SideBar/>
+         <Feed />
+         <RightsideBar/>
+         
+        
+           
         </div>
     )
 }
