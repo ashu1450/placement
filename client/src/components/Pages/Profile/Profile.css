@@ -1,0 +1,57 @@
+.Profile {
+    margin-top: 1vw;
+    width: 13vw;
+    margin-left: 80vw;
+    
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    max-height: 85vh;
+    background-color: rgb(189, 205, 211);
+    size: 1vw;
+  }
+
+  .SideBarItem1 {
+    display: flex;
+    align-items: center;
+    padding: 2px;
+    cursor: pointer;
+    text-decoration: none !important;
+}
+.SideBarItem1> .text {
+   margin-top: 10px;
+}
+
+
+.Profile > .body::before {
+    content: '';
+    position: absolute;
+    top: -10px !important;
+    right: 28px;
+    width: 20px;
+    height: 20px;
+    transform: rotate(45deg) !important;
+}
+  @media screen and (max-width: 600px) {
+    .SideBarItem1 > .icon1{
+      font-size: small;
+    }
+  }
+
+  @media screen and (max-width: 350px) {
+    .SideBarItem1 > .icon1{
+      font-size: small;
+    }
+    .Profile {
+      margin-top: 1vw;
+      width: 50vw;
+      margin-left: 90vw;
+      
+      display: block;
+      padding: 10px;
+      max-height: 85vh;
+      size: 1vw;
+    }
+  }

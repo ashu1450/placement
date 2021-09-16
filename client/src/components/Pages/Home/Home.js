@@ -1,7 +1,7 @@
 import React from 'react'
 import Feed from '../../center/Feed';
- import RightsideBar from '../../RightSideBar/RightSideBar';
- import SideBar from '../../SideBar/SideBar';
+import RightsideBar from '../../RightSideBar/RightSideBar';
+import SideBar from '../../SideBar/SideBar';
 
 
 import "./Home.css";

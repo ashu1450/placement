@@ -1,11 +1,11 @@
 import React from "react";
 import './RightSideBar.css';
-
 function RightsideBar(){
     return(
         <div className="rightsideBar">
-           ksdgk.bdvbdfvkjdbf
+           ksdgk.
         </div>
     );
+    
 }
 export default RightsideBar;

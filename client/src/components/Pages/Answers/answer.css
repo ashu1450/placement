@@ -1,0 +1,47 @@
+.buttons > .postAnswer{
+  border: none;
+  outline: none;
+  background-color: rgb(109, 121, 156) !important;
+  color: white;
+  font-weight: 700;
+  padding: 10px;
+  margin-right: 10px;
+  border-radius: 33px;
+  cursor: pointer;
+}
+.buttons > .postAnswer:hover{
+  background-color: rgb(90, 108, 161) !important;
+}
+
+.Modal_info > .line {
+  margin-left: 15px !important;
+  margin-right: 50px;
+  padding-right: 25px;
+  margin-top: 10px;
+  margin-bottom: 160px;
+  font-size: small !important;
+  color: gray;
+
+}
+.Modal_info > .avatar1 {
+  margin-bottom: 150px;
+}
+
+.form-group  {
+  display: flex;
+  flex-direction: column;
+  margin-top: 25px;
+  margin-left: -315px;
+  flex: 1;
+}
+
+@media screen and (max-width: 356px) {
+  .buttons > .postAnswer {
+      font-size: x-small;
+  }
+}
+/* @media screen and (max-width: 356px) {
+  .form-group  {
+     max-width: 50%;
+  }
+} */

@@ -34,16 +34,9 @@
   font-weight: bold;
   font-size: large;
 }
-
-@media screen and (max-width: 986px) {
-  .quoraBox__info > h5 {
-     font-size: medium;
-     font-weight: 200;
-  }
-
-  .quoraBox__quora > p {
-    
-    font-weight: bold;
-    font-size: medium;
-  }
-} 
+.username-text{
+  font-size: 2.3vw !important;
+}
+.question-link{
+  font-size: 2vw !important;
+}

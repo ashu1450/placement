@@ -1,15 +1,11 @@
 .feed {
   display: flex;
   flex-direction: column;
-  flex: 0.6;
-  margin-left: 22vw;
+  width: 40vw;
+  margin-left: 25vw;
 }
-
-/* @media screen and (min-width: 375px) {
-  .feed {
-    display: flex;
-    flex-direction: column;
-    flex: 0.64;
-    margin-left: 8vw;
-  }
-}   */
+@media screen and (max-width: 600px) {
+.feed {
+  width: 60vw;
+}
+}

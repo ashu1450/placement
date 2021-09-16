@@ -8,10 +8,10 @@ export default function FeedTop() {
     <div className="quoraBox">
       <div className="quoraBox__info">
         <Avatar />
-        <h5>UserName</h5>
+        <h5 className="username-text">UserName</h5>
       </div>
       <div className="quoraBox__quora">
-        <p>What is your question or link?</p>
+        <p className="question-link">What is your question or link?</p>
       </div>
     </div>
   );

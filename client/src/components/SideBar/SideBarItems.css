@@ -16,16 +16,8 @@
    background-color: rgb(193, 229, 241);
    border-radius: 5px;
 }
-.SideBarItem > Link img{
-   
-    margin-left: 20px;
-    border-radius: 35px;
-
-}
 .SideBarItem > img{
-   
-    margin-left: 20px;
-    border-radius: 35px;
+   border-radius: 35px;
    
 
 }
@@ -38,28 +30,10 @@
 
 }
 
-.SideBarItems > h4 {
-    margin-left: 34px;
 
+.text{
+    font-size: 1.2vw !important;
 }
-
-@media screen and (min-width: 986px) {
-    .SideBarItem > p{
-        font-size: medium;
-    }
-    
-    /* .SideBarItems > h4{
-        font-size: medium;
-    } */
-   
-  } 
-  @media screen and (min-width: 864px) {
-    .SideBarItem > p{
-        font-size: medium;
-    }
-    
-    .SideBarItems > h4{
-        font-size: medium;
-    }
-   
-  } 
+.title-text{
+    font-size: 1.7vw !important;
+}

@@ -45,18 +45,18 @@
 .post__question > .post__btnAnswer {
   margin-left: auto;
   cursor: pointer;
-  padding: 7px;
-  background-color: blue;
+  padding: 0.7vw;
+  background-color:  rgb(109, 121, 156);
   outline: none;
   border: none;
   color: lightgray;
   font-weight: 300;
-  font-size: 14px;
-  border-radius: 33px;
+  font-size: 0.8vw;
+  border-radius: 2vw;
 }
 
 .post__btnAnswer:hover {
-  color: blue;
+  color: rgb(90, 108, 161);
   background: lightgray;
 }
 
@@ -85,17 +85,18 @@
   display: flex;
   align-items: center;
   margin-top: 5px;
+  justify-content:space-between;
 }
 
 .post__footer > .MuiSvgIcon-root {
   color: gray;
-  margin-right: 40px;
+  margin-right: 2vw;
   cursor: pointer;
 }
 
 .post__footerAction {
   background-color: lightgray;
-  padding: 5px;
+  padding: 0.2vw;
   align-items: center;
   display: flex;
   justify-content: space-around;
@@ -103,7 +104,7 @@
 }
 .post__footerAction > .MuiSvgIcon-root {
   color: gray;
-  margin-right: 40px;
+  margin-right: 2vw;
   cursor: pointer;
 }
 
@@ -188,4 +189,13 @@
   margin-right: 10px;
   border-radius: 33px;
   cursor: pointer;
+}
+
+.question-text{
+font-size: 1.2vw !important;  
+}
+@media screen and (max-width: 600px) {
+  .question-text{
+    font-size: 2.5vw !important;  
+      }
 }
