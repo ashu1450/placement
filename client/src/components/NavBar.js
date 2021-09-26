@@ -6,16 +6,24 @@ import SearchIcon from '@material-ui/icons/Search';
 import AssignmentTurnedInOutlinedIcon from "@material-ui/icons/AssignmentTurnedInOutlined"
 import { Avatar, TextField } from '@material-ui/core';
 import *as ReactBootStrap from "react-bootstrap";
-import { Link } from 'react-router-dom';
+import { Link , useHistory} from 'react-router-dom';
 import QuestionModal from './Pages/AddQuestions/AddQuestions';
 import Button from '@restart/ui/esm/Button';
 import LoginModal from './Pages/Login/Login';
 
 
+
 export default function NavBar() {
 
     const [questionShow, setQuestionShow] = React.useState(false);
-    const [loginShow, LoginShow] = React.useState(false);
+   // const [loginShow, LoginShow] = React.useState(false);
+   const history = useHistory();
+
+   const logOutHandler = ()=>{
+       localStorage.removeItem("authToken");
+       history.push("/login");
+
+   }
     
     return (
         <>
@@ -53,11 +61,11 @@ export default function NavBar() {
 
                                 />
                                 </ReactBootStrap.Nav.Link>
-                                <ReactBootStrap.Nav.Link onClick={() => LoginShow(true)} className="login" >Login</ReactBootStrap.Nav.Link>
-                                <LoginModal
+                                <ReactBootStrap.Nav.Link  className="login" ><button onClick={logOutHandler} className="addQuestion" >logout</button></ReactBootStrap.Nav.Link>
+                                {/* <LoginModal
                                     show={loginShow} 
                                     onHide={() => LoginShow(false)}
-                                />
+                                /> */}
                                 <ReactBootStrap.Nav.Link as={Link} to="/profile" className="avatar"><Avatar /></ReactBootStrap.Nav.Link>
 
                             </ReactBootStrap.Nav>
