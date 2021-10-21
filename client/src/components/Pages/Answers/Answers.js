@@ -1,7 +1,7 @@
 import React from 'react';
 import { Avatar, Input } from '@material-ui/core';
 import { Button, Modal} from 'react-bootstrap';
- import './answer.css'
+ import './Answer.css'
 function AnswerModal(props) {
     return (
       <Modal

@@ -1,23 +1,20 @@
-require ("dotenv").config({path: "./config.env"});
-const express = require('express');
-const connectToMongo = require('./mongodb');
-const errorHandler = require('./middleware/error');
-connectToMongo();
+const app = require('./app');
+const dotenv = require("dotenv");
+const cloudinary = require("cloudinary");
+const connectToDatabase = require("./config/database");
 
-const app = express();
-app.use(express.json());  // this is middleware that allow to get data from body
 
-app.use(errorHandler);    // error handler middle ware
+//config
+dotenv.config({path:"server/config/config.env"})
 
-app.use('/api/auth', require('./routes/auth'));
-//app.use('/api/private', require('./routes/private'));
-const PORT = process.env.PORT || 5000;
-app.get('/',(req,res) =>{
-    res.send('hello kavya')
-})
-const server = app.listen(PORT, ()=> console.log (`server is listining at http://localhost:${PORT}`));
+connectToDatabase();
 
-process.on("unhandledRejection",(err, promise) => {
-    console.log(`Logged Error: ${err}`);
-    server.close(() => process.exit(1));
-})
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
+
+ app.listen(process.env.PORT,() => {
+    console.log(`server is running on http://localhost:${process.env.PORT}`)
+  })

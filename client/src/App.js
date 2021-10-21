@@ -1,47 +1,63 @@
-import React from 'react'
-import './App.css';
+import React from "react";
+import "./App.css";
+import webFont from "webfontloader";
+import NavBar from "./components/NavBar/NavBar";
+import { BrowserRouter as Router,  Route } from "react-router-dom";
+import Home from "./components/Pages/Home/Home";
+import Companies from "./components/Pages/Companies/Companies";
+import LoginSignUp from "./components/Pages/User/LoginSignUp";
+import Profile from "./components/Pages/User/Profile";
+import ForgotPassword from "./components/Pages/User/ForgotPassword";
+import ResetPassword from "./components/Pages/User/ResetPassword";
+import UpdateProfile from "./components/Pages/User/UpdateProfile";
+import UpdatePassword from "./components/Pages/User/UpdatePassword";
+import store from "./store";
+import { loadUser } from "./actions/userAction";
+import { useSelector } from "react-redux";
+import UserOptions from "./components/UserOptions/UserOptions";
+import ProtectedRoute from "./components/Route/ProtectedRoute";
 
-// import SideBar from './components/SideBar/SideBar';
 
- import NavBar from './components/NavBar';
- import {BrowserRouter as Router,Switch,Route,} from "react-router-dom";
-  import Home from './components/Pages/Home/Home';
-  import Companies from './components/Pages/Companies/Companies';
- // import Archives from './components/pages/Archives/Archives';
-  import Notification from './components/Pages/Notification/Notification';
-  import Login from './components/Pages/Login/Login';
-  import Profile from './components/Pages/Profile/Profile';
-  import SearchBar from './components/Pages/SearchBar';
-  import Ans from './components/Pages/Ans/Ans';
-import Register from './components/Pages/Register/Register';
-import ForgotPassword from './components/Pages/ForgotPassword/ForgotPassword';
-import ResetPassword from './components/Pages/ResetPassword/ResetPassword';
 
-//import PrivateRoute from './components/routing/PrivateRoute';
-//import PrivateScreen from './components/Pages/PrivateScreen/PrivateScreen';
- 
+
+
+
 function App() {
-  // const [progress, setProgress] = useState(0);
+
+  const { isAuthenticated, user } = useSelector((state) => state.user);
+
+  React.useEffect(() => {
+    webFont.load({
+      google:{
+        families:["Roboto","Droid Sans","Chilanka"]
+      }
+    })
+
+    store.dispatch(loadUser());      // user lina lai /me wala , state ma data rahnxa jaile aaba 
+
+  },[]);
+ 
   return (
     <div className="App">
-       <Router>
-           <NavBar/>
+      <Router>
+        <NavBar />
 
-             <Switch>
-               {/* <Home exact path="/" component={Home}/> */}
-                 <Route exact path="/home"><Home  /></Route>
-                 <Route exact path="/companies"><Companies/></Route>
-                 <Route exact path="/ans"><Ans/></Route>
-                 <Route exact path="/notifications"><Notification/></Route>
-                 <Route exact path="/search"><SearchBar/></Route>
-                 <Route exact path="/login"><Login/></Route>
-                 <Route exact path="/register"><Register/></Route>
-                 <Route exact path="/forgotpassword"><ForgotPassword/></Route>
-                 <Route exact path="/resetpassword/:resetToken"><ResetPassword/></Route>
-                 <Route exact path="/profile"><Profile/></Route>
-             </Switch>
-       </Router>
+       
+        {isAuthenticated && <UserOptions user={user} />}
+       
+        <Route exact path="/" component={Home} />
+        <Route exact path="/companies" component={Companies} />
+        <Route exact path="/account" component={Profile} />
+        <Route exact path="/login" component={LoginSignUp} />
 
+        <ProtectedRoute exact path="/account" component={Profile} />
+
+        <Route exact path="/password/forgot" component={ForgotPassword} />
+        <Route exact path="/password/reset/:token" component={ResetPassword} />
+
+        <ProtectedRoute exact path="/me/update" component={UpdateProfile} />
+        <ProtectedRoute exact path="/password/update" component={UpdatePassword} />
+      </Router>
     </div>
   );
 }

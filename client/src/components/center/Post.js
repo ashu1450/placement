@@ -30,9 +30,7 @@ function Post() {
           />
 
         </div>
-        <div className="post__answer">
 
-        </div>
         <img src="" alt="" />
 
       </div>
