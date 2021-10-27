@@ -1,25 +1,29 @@
 import { Avatar } from "@material-ui/core";
-import React from "react";
+import React, { Fragment , useState} from "react";
 import "./Post.css";
-import ArrowUpwardOutlinedIcon from "@material-ui/icons/ArrowUpwardOutlined";
-import ArrowDownwardOutlinedIcon from "@material-ui/icons/ArrowDownwardOutlined";
-import RepeatOutlinedIcon from "@material-ui/icons/RepeatOutlined";
-import ChatBubbleOutlineOutlinedIcon from "@material-ui/icons/ChatBubbleOutlineOutlined";
-import { MoreHorizOutlined, ShareOutlined } from "@material-ui/icons";
-import AnswerModal from "../Pages/Answers/Answers";
+import AnswerModal from "../Pages/Answers/AnswerModal";
+import { Link } from "react-router-dom";
 
-function Post() {
-  const [answerShow, AnswerShow] = React.useState(false);
+
+const Post = ({ question }) => {
+   const [answerShow, AnswerShow] = useState(false);
+ 
   return (
-    <div className="post">
+   <Fragment>
+     <div className = "post" >
+     
       <div className="post__info">
         <Avatar style={{ height: '2.7vw', width: '2.7vw' }} />
-        <h4>username</h4>
-        <small>Date with Time</small>
+        <h4>name</h4>
+        <p>{String(question.createdAt).substr(0, 10)}</p>
       </div>
       <div className="post__body">
-        <div className="post__question">
-          <p className="question-text">Here will be the question</p>
+      <Link className = "post" to={`/question/${question._id}`} >
+          <p className="question-text">{question.questionDescription}</p>
+          <small>{question.numOfAnswers} answer</small>
+          </Link>
+         
+
           <button onClick={() => AnswerShow(true)} className="post__btnAnswer">
             Answer
           </button>
@@ -30,24 +34,14 @@ function Post() {
           />
 
         </div>
+        {/* {question.questionImage? } */}
 
-        <img src="" alt="" />
+        {/* <img src={question.questionImage[0].url } alt={question.questionImage._id} /> */}
+        
+       
 
       </div>
-      <div className="post__footer">
-        <div className="post__footerAction">
-          <ArrowUpwardOutlinedIcon />
-          <ArrowDownwardOutlinedIcon />
-        </div>
-
-        <RepeatOutlinedIcon />
-        <ChatBubbleOutlineOutlinedIcon />
-        <div className="post__footerLeft">
-          <ShareOutlined />
-          <MoreHorizOutlined />
-        </div>
-      </div>
-    </div>
+   </Fragment>
   );
 }
 

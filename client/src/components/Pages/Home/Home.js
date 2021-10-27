@@ -6,12 +6,7 @@ import SideBar from '../../SideBar/SideBar';
  
 import "./Home.css";
 
-const question = {
-    questionDescription: "what is what?",
-    tag: "General",
-    questionImages: [{url : "https://i.ibb.co/DRST11n/1.webp" }],
-    _id: "kavya"
-}
+
 
  const Home = () => {
     
@@ -23,9 +18,9 @@ const question = {
          
          <SideBar/>
        
-         <Feed  question = {question}/>
+         <Feed />
          
-         <RightsideBar/>
+         {/* <RightsideBar/> */}
          </div>
         </Fragment>
     )

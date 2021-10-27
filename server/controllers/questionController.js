@@ -61,6 +61,23 @@ exports.deleteQuestion = catchAsyncErrors(async(req,res,next) => {
 
 });  
 
+// get question details
+exports.getQuestionDetails = catchAsyncErrors(async(req,res,next) => {
+  const question = await Question.findById(req.params.id);
+
+  if(!question){
+      return next(new ErrorHandler("Question  not found",404));
+  }
+
+
+
+  res.status(200).json({
+      success: true,
+      question
+  });
+
+}); 
+
 // update question 
 exports.updateQuestion = catchAsyncErrors(async(req,res,next) => {
     let question = await Question.findById(req.params.id);
@@ -86,10 +103,11 @@ exports.getAllQuestions = catchAsyncErrors(async (req, res, next) => {
    
     const questionsCount = await Question.countDocuments();
     const apiFeatures = new ApiFeatures(Question.find(),req.query)
-    .search();
+    .search()
+    .filter();
 
 
-    const questions = await apiFeatures.query;
+    let questions = await apiFeatures.query;
     
   
     res.status(200).json({
@@ -98,3 +116,77 @@ exports.getAllQuestions = catchAsyncErrors(async (req, res, next) => {
       questions,
     });
   });
+
+
+// Add New answer 
+exports.addAnswer = catchAsyncErrors(async (req, res, next) => {
+  const { rating, ans, questionId } = req.body;
+
+  const answer = {
+    user: req.user._id,
+    name: req.user.name,
+   // rating: Number(rating),
+    ans,
+  };
+
+  const question = await Question.findById(questionId);
+    question.answers.push(answer);
+    question.numOfAnswers = question.answers.length;
+  
+
+   await question.save({ validateBeforeSave: false });
+
+  res.status(200).json({
+    success: true,
+    answer
+  });
+}); 
+
+  // Get All Answers of a question
+  exports.getAllAnswers = catchAsyncErrors(async (req, res, next) => {
+    const question = await Question.findById(req.query.id);
+  
+    if (!question) {
+      return next(new ErrorHandler("Qustion not found", 404));
+    }
+  
+    res.status(200).json({
+      success: true,
+      answers: question.answers,
+    });
+  });
+
+
+
+
+   // Delete Review
+exports.deleteAnswer = catchAsyncErrors(async (req, res, next) => {
+  const question = await Question.findById(req.query.questionId);
+
+  if (!question) {
+    return next(new ErrorHandler("Question not found", 404));
+  }
+
+  const answers = question.answers.filter(
+    (rev) => rev._id.toString() !== req.query.id.toString()
+  );
+
+  const numOfAnswers = answers.length;
+
+  await Question.findByIdAndUpdate(
+    req.query.questionId,
+    {
+      answers,
+      numOfAnswers,
+    },
+    {
+      new: true,
+      runValidators: true,
+      useFindAndModify: false,
+    }
+  );
+
+  res.status(200).json({
+    success: true,
+  });
+}); 

@@ -12,9 +12,25 @@ class ApiFeatures {
             },
         }:{};
 
+
+      //  console.log(keyword);
        
         this.query = this.query.find({...keyword});
         return this;
+    }
+
+    filter(){
+        const queryCopy = {...this.queryStr}; // copying from original
+        
+        //Removing some feild for category which are not needed. 
+        const removeFields = ["keyword"];
+        removeFields.forEach((key) => delete queryCopy[key]);
+        let queryStr = JSON.stringify(queryCopy); 
+
+        this.query = this.query.find(JSON.parse(queryStr));
+    
+        return this;
+        
     }
 
    

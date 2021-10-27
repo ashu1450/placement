@@ -5,7 +5,7 @@ import RepeatOutlinedIcon from "@material-ui/icons/RepeatOutlined";
 import ChatBubbleOutlineOutlinedIcon from "@material-ui/icons/ChatBubbleOutlineOutlined";
 import { MoreHorizOutlined, ShareOutlined } from "@material-ui/icons";
 import "./AnsPost.css";
-import AnswerModal from "../Answers/Answers";
+import AnswerModal from "../Answers/AnswerModal";
 
 
 function AnsPost() {
