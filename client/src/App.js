@@ -17,6 +17,7 @@ import { useSelector } from "react-redux";
 import UserOptions from "./components/UserOptions/UserOptions";
 import ProtectedRoute from "./components/Route/ProtectedRoute";
 import QuestionAnswerDetails from "./components/Center/QuestionAnswerDetails";
+import Archives from "./components/Pages/Archives/Archives";
 
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
         <Route exact path="/question/:id" component={QuestionAnswerDetails} />
       
         <Route exact path="/companies" component={Companies} />
+        <Route exact path="/archives" component={Archives} />
         <Route exact path="/account" component={Profile} />
         <Route exact path="/login" component={LoginSignUp} />
 

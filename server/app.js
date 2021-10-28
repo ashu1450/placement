@@ -15,6 +15,7 @@ app.use(fileUpload());
 // Route import
 const user = require("./routes/userRoutes");
 const question = require("./routes/questionRoutes");
+const archive = require("./routes/archiveRoutes");
 
 
 // error middleware
@@ -22,5 +23,6 @@ app.use(errorMiddleware);
 
 app.use("/api/v1",user);
 app.use("/api/v1",question);
+app.use("/api/v1",archive);
 
 module.exports = app;
