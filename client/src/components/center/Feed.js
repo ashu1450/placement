@@ -2,11 +2,14 @@ import React, { Fragment, useEffect,useState } from "react";
 import FeedTop from "./FeedTop";
 import Post from "./Post";
 import "./Feed.css";
-import { getQuestion, clearErrors } from "../.././actions/questionActions";
+import { getQuestion, clearErrors } from "../../actions/questionActions";
 import { useSelector, useDispatch } from "react-redux";
  import Loader from "../Layout/Loader/Loader";
 import { useAlert } from "react-alert";
 import Typography from "@material-ui/core/Typography";
+import { Link } from "react-router-dom";
+import LocalOfferIcon from '@material-ui/icons/LocalOffer';
+
 
 
 const Tags = [
@@ -31,6 +34,7 @@ const Feed = () => {
     dispatch(getQuestion(tag));
   }, [dispatch,tag,error,alert]);
 
+  
   return (
     <Fragment>
        {loading ? ( <Loader/> ) : (
@@ -43,18 +47,23 @@ const Feed = () => {
           </div>
 
           <div className="rightsideBar">
-          <Typography>Tags</Typography>
-            <ul className="categoryBox">
+          <Typography className="tags" >Tags</Typography>
+
+          
+             <ul className="container1">
               {Tags.map((tag) => (
-                <li
-                  className="category-link"
+                <div className='link'>
+                <div
+                  className="text"
                   key={tag}
                   onClick={() => setTag(tag)}
                 >
+                <LocalOfferIcon />
                   {tag}
-                </li>
+                  </div>
+                  </div>
               ))}
-            </ul>
+            </ul> 
         </div>
         </Fragment>
        )}

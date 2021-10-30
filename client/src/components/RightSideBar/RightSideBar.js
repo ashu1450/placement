@@ -38,8 +38,8 @@ function RightsideBar(){
     
     return(
         <div className="rightsideBar">
-          <Typography>Tags</Typography>
-            <ul className="categoryBox">
+          {/* <Typography>Tags</Typography> */}
+            {/* <ul className="categoryBox">
               {Tags.map((tag) => (
                 <li
                   className="category-link"
@@ -49,7 +49,7 @@ function RightsideBar(){
                   {tag}
                 </li>
               ))}
-            </ul>
+            </ul> */}
         </div>
     );
     
