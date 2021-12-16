@@ -4,7 +4,7 @@ import webFont from "webfontloader";
 import NavBar from "./components/NavBar/NavBar";
 import { BrowserRouter as Router,  Route } from "react-router-dom";
 import Home from "./components/Pages/Home/Home";
-import Companies from "./components/Pages/Companies/Companies";
+import Placement from "./components/Pages/Placement/Placement";
 import LoginSignUp from "./components/Pages/User/LoginSignUp";
 import Profile from "./components/Pages/User/Profile";
 import ForgotPassword from "./components/Pages/User/ForgotPassword";
@@ -18,6 +18,9 @@ import UserOptions from "./components/UserOptions/UserOptions";
 import ProtectedRoute from "./components/Route/ProtectedRoute";
 import QuestionAnswerDetails from "./components/Center/QuestionAnswerDetails";
 import Archives from "./components/Pages/Archives/Archives";
+// import Card from "@material-ui/core/Card";
+// import CardContent from "@material-ui/core/CardContent";
+
 
 
 function App() {
@@ -31,23 +34,23 @@ function App() {
       }
     })
 
-    store.dispatch(loadUser());      // user lina lai /me wala , state ma data rahnxa jaile aaba 
+    store.dispatch(loadUser());      // user lina lai /me wala , state ma data rahnxa jaile aaba
 
   },[]);
- 
+
   return (
     <div className="App">
       <Router>
         <NavBar />
 
-       
+
         {isAuthenticated && <UserOptions user={user} />}
-       
+
         <Route exact path="/" component={Home} />
 
         <Route exact path="/question/:id" component={QuestionAnswerDetails} />
-      
-        <Route exact path="/companies" component={Companies} />
+
+        <Route exact path="/Placement" component={Placement} />
         <Route exact path="/archives" component={Archives} />
         <Route exact path="/account" component={Profile} />
         <Route exact path="/login" component={LoginSignUp} />

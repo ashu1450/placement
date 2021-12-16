@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100&display=swap");
+
+
+.card-container{
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-evenly;
+    position: relative;
+}
+
+.card{
+   width: 12rem;
+   height: 12rem;
+   color: #042557fa;
+   padding: 5px;
+   margin: 20px;
+   background-color:#fff;
+   flex-direction: column;
+   justify-content: space-evenly;
+   align-items: center;
+   box-shadow: 5px 5px 5px rgb(65, 62, 62);
+   position: relative;
+   /* transform: rotateY(20deg) skewX(-2deg); */
+   transition: transform 0.5s ,box-shadow 0.5s;
+}
+
+.card:hover{
+    transform: rotateY(0deg) skewX(0deg) translateY(-3rem);
+    box-shadow: 2rem 2rem 2rem rgb(49, 49, 49);
+  }
+  /* .card::before{
+    content: "";
+    height : 100%;
+    width: 1rem;
+    
+    position: absolute;
+    
+   
+   
+  }
+  
+  .card::after{
+    content: "";
+    height : 1rem;
+    width: 100%;
+    
+    position: absolute;
+    
+  }
+     */
+  

@@ -17,17 +17,17 @@ import { AccountBox, AccountBoxOutlined } from '@material-ui/icons';
 export default function NavBar() {
 
     const [questionShow, setQuestionShow] = React.useState(false);
-  
+
    const history = useHistory();
 
-  
-    
+
+
     return (
         <>
             <div className="Header">
                 <ReactBootStrap.Navbar sticky="top" collapseOnSelect expand="lg" className="Head"
                     activeKey="/home"
-               
+
                 >
                     <ReactBootStrap.Container>
                         <ReactBootStrap.Navbar.Brand to="/home" className="logo">Sona_Space</ReactBootStrap.Navbar.Brand>
@@ -36,7 +36,7 @@ export default function NavBar() {
                             <ReactBootStrap.Nav className="me-auto">
                                 <ReactBootStrap.Nav defaultActiveKey="/home">
                                     <ReactBootStrap.Nav.Link as={Link} to="/" className="comp" eventKey="/home" ><HomeIcon fontSize="small" />Home</ReactBootStrap.Nav.Link>
-                                    <ReactBootStrap.Nav.Link as={Link} to="/companies" className="comp" eventKey="link-2">Companies</ReactBootStrap.Nav.Link>
+                                    <ReactBootStrap.Nav.Link as={Link} to="/placement" className="comp" eventKey="link-2">Placement</ReactBootStrap.Nav.Link>
                                     <ReactBootStrap.Nav.Link as={Link} to="/archives" className="comp" eventKey="link-3">Archives</ReactBootStrap.Nav.Link>
 
 
@@ -58,9 +58,9 @@ export default function NavBar() {
 
                                 />
                                 </ReactBootStrap.Nav.Link>
-                               
+
                                 <ReactBootStrap.Nav.Link as={Link} to="/login" className="avatar"><AccountBoxOutlined/></ReactBootStrap.Nav.Link>
-                               
+
                                 {/* <ReactBootStrap.Nav.Link as={Link} to="/profile" className="avatar"><Avatar /></ReactBootStrap.Nav.Link> */}
 
                             </ReactBootStrap.Nav>
